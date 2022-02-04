@@ -1,5 +1,5 @@
-import GetListFirst from '../../dist/proxy/handler/get-list-first';
-import List from '../../dist/proxy/list';
+import GetListFirst from '../../dist/handler/get-list-first';
+import List from '../../dist/list';
 
 export class Parent {
 

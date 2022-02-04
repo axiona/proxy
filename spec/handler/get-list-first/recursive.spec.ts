@@ -1,7 +1,7 @@
-import GetHandler from '../../../dist/proxy/handler/get-list-first';
-import GetOwnPropertyDescriptorListAll from '../../../dist/proxy/handler/get-own-property-descriptor-list-all';
-import MergeAnonymous from '../../../dist/proxy/handler/merge-anonymous';
-import GetPrototypeOfListMerge from '../../../dist/proxy/handler/prototype-of-list-merge';
+import GetHandler from '../../../dist/handler/get-list-first';
+import GetOwnPropertyDescriptorListAll from '../../../dist/handler/get-own-property-descriptor-list-all';
+import MergeAnonymous from '../../../dist/handler/merge-anonymous';
+import GetPrototypeOfListMerge from '../../../dist/handler/prototype-of-list-merge';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
