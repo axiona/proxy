@@ -1,6 +1,6 @@
 {
   "name": "@alirya/proxy",
-  "version": "0.37.0-alpha.5",
+  "version": "0.0.1",
   "description": "Typescript object",
   "dependencies": {
     "@alirya/object": "0.37.0",
