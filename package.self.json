@@ -3,6 +3,7 @@
   "version": "0.37.0-alpha.5",
   "description": "Typescript object",
   "dependencies": {
+    "@alirya/object": "^0.37.0-alpha.5",
     "@alirya/array": "^0.26.0-alpha.4",
     "@alirya/function": "^0.15.0-beta.9",
     "is-empty-object": "^1.1.1",
