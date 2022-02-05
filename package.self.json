@@ -1,9 +1,9 @@
 {
   "name": "@alirya/proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typescript object",
   "dependencies": {
-    "@alirya/object": "0.37.0",
+    "@alirya/object": "0.37.1",
     "@alirya/array": "0.26.0",
     "@alirya/function": "0.15.0",
     "is-empty-object": "^1.1.1",
@@ -11,7 +11,7 @@
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "@alirya/type": "0.7.0"
+    "@alirya/type": "0.7.1"
   },
   "homepage": "https://github.com/alirya/proxy",
   "repository": {
