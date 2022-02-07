@@ -17,6 +17,7 @@
     "emitDecoratorMetadata": true,
     "rootDir": "./src",
     "outDir": "./dist",
+    "importHelpers": true,
     "tsBuildInfoFile": "./dist/compiler-cache.json",
     "lib": [
       "es2016",

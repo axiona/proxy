@@ -17,6 +17,7 @@
     "emitDecoratorMetadata": true,
     "rootDir": "./spec",
     "outDir": "./dist-spec",
+    "importHelpers": true,
     "tsBuildInfoFile": "./dist-spec/compiler-cache.json",
     "lib": [
       "es2016",
