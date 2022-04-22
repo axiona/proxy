@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "tslib": "^2.3.1",
-    "@alirya/object": "^0.37.4",
+    "@alirya/object": "^0.37.8",
     "@alirya/array": "^0.26.3",
     "@alirya/function": "^0.16.2",
     "is-empty-object": "^1.1.1",
@@ -42,7 +42,7 @@
     "utility-types": "^3.10.0",
     "package-version-git-tag": "^3.0.0",
     "@alirya/type": "^0.7.1",
-    "cpx": "^1.5.0"
+    "cpx2": "^4.2.0"
   },
   "scripts": {
     "spec-run-js": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json",
