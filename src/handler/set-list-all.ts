@@ -1,5 +1,5 @@
 import Exists from '@alirya/object/property/boolean/exists';
-import Writable from '@alirya/object/property/boolean/writable-parameters';
+import Writable from '@alirya/object/property/boolean/writable';
 import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
@@ -25,7 +25,7 @@ export default class SetListAll<
 
     set(target: Target, property: PropertyKey, value: any, receiver: any): boolean {
 
-        if(Exists(this.settable, property)) {
+        if(Exists.Parameters(this.settable, property)) {
 
             let list = this.settable[<string|number>property] as Partial<List.UnionOf<Objects>>[];
 
@@ -41,7 +41,7 @@ export default class SetListAll<
 
         for (let handler of this.getHandler(target)) {
 
-            if(Writable(handler, property)) {
+            if(Writable.Parameters(handler, property)) {
 
                 list.push(handler);
             }

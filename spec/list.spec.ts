@@ -1,13 +1,13 @@
-import List from '../dist/list';
+import List from '@alirya/object/proxy/list';
 import New from '@alirya/function/new';
-import SetListAll from '../dist/handler/set-list-all';
-import GetListFirst from '../dist/handler/get-list-first';
-import HasListAny from '../dist/handler/has-list-any';
+import SetListAll from '@alirya/object/proxy/handler/set-list-all';
+import GetListFirst from '@alirya/object/proxy/handler/get-list-first';
+import HasListAny from '@alirya/object/proxy/handler/has-list-any';
 import {Mutable} from 'utility-types';
 import {InspectOptions} from 'util';
 import {Object} from 'ts-toolbelt';
-import GetOwnPropertyDescriptorListAll from '../dist/handler/get-own-property-descriptor-list-all';
-import GetPrototypeOfListMerge from '../dist/handler/prototype-of-list-merge';
+import GetOwnPropertyDescriptorListAll from '@alirya/object/proxy/handler/get-own-property-descriptor-list-all';
+import GetPrototypeOfListMerge from '@alirya/object/proxy/handler/prototype-of-list-merge';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

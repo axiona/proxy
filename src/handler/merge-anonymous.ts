@@ -1,5 +1,5 @@
 import Merge from '@alirya/array/intersect';
-import Exists from '@alirya/object//property/boolean/exists';
+import Exists from '@alirya/object/property/boolean/exists';
 
 export default function MergeAnonymous<
     Target extends object,
@@ -17,7 +17,7 @@ export default function MergeAnonymous<
 
         for(let property of properties) {
 
-            if(Exists(handler, property)) {
+            if(Exists.Parameters(handler, property)) {
 
                 result[property] = (... argument : any[]) => handler[property](...argument);
             }

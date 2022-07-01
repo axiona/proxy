@@ -23,7 +23,7 @@ export default class HasListAny<
 
     has(target: Target, property: PropertyKey): boolean {
 
-        if(Exists(this.handler, property)) {
+        if(Exists.Parameters(this.handler, property)) {
 
             return this.handler[<string|number>property];
         }
@@ -32,7 +32,7 @@ export default class HasListAny<
 
         for (const handler of this.getHandler(target)) {
 
-            if(Exists(handler, property)) {
+            if(Exists.Parameters(handler, property)) {
 
                 (this.handler  as Partial<Record<keyof Target, boolean>>)[<string|number>property] = true;
                 break;

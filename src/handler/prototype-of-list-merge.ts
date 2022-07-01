@@ -2,7 +2,7 @@ import {Required} from 'utility-types';
 import IsObject from '@alirya/object/boolean/object';
 import Getter from '@alirya/object/descriptor/boolean/getter';
 import Setter from '@alirya/object/descriptor/boolean/setter';
-import MergeGetterSetter from '@alirya/object/descriptor/merge-getter-setter-parameters';
+import MergeGetterSetter from '@alirya/object/descriptor/merge-getter-setter';
 import MultiHandlers from './multi-handlers';
 
 export default class PrototypeOfListMerge<
@@ -65,7 +65,7 @@ export default class PrototypeOfListMerge<
                         (Setter(buffers.get(key)) && Getter(descriptor))
                     ) {
 
-                        descriptor = MergeGetterSetter(buffers.get(key), descriptor);
+                        descriptor = MergeGetterSetter.Parameters(buffers.get(key), descriptor);
                     }
                 }
 

@@ -1,7 +1,10 @@
-import GetHandler from '../../../dist/handler/get-list-first';
-import GetOwnPropertyDescriptorListAll from '../../../dist/handler/get-own-property-descriptor-list-all';
-import MergeAnonymous from '../../../dist/handler/merge-anonymous';
-import GetPrototypeOfListMerge from '../../../dist/handler/prototype-of-list-merge';
+import GetHandler from '@alirya/object/proxy/handler/get-list-first';
+import GetOwnPropertyDescriptorListAll from '@alirya/object/proxy/handler/get-own-property-descriptor-list-all';
+import MergeAnonymous from '@alirya/object/proxy/handler/merge-anonymous';
+import GetPrototypeOfListMerge from '@alirya/object/proxy/handler/prototype-of-list-merge';
+import {ReadableParameters} from '@alirya/object/property/boolean/readable';
+import {ExistsParameters} from '@alirya/object/property/boolean/exists';
+import {PickParameters} from '@alirya/object/pick';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -74,24 +77,21 @@ describe('original handler', () => {
 
     it('check value', ()=>{
 
-        expect<any>(proxy2.data).toBe(undefined);
-        expect(proxy2[Symbol.iterator]).toBe(undefined);
+        expect(proxy2.data).toBe('property 1');
+        expect(ReadableParameters(proxy2, 'data')).toBe(true);
+        expect(ExistsParameters(proxy2, 'data')).toBe(true);
+        expect(PickParameters(proxy2, 'data')).toEqual({data:'property 1'});
 
-        let iterated : boolean = false;
+        expect(typeof proxy2[Symbol.iterator]).toBe('function');
 
-        try {
+        let values : string[] = [];
 
-            for (let string of proxy2) {
+        for (let string of proxy2) {
 
-                iterated = true;
-            }
-
-            fail('error should be thorwn');
-
-        } catch (e) {
-
-            expect(e).toBeInstanceOf(Error);
+            values.push(string);
         }
+
+        expect(values).toEqual(['1', '2', '2', '3']);
 
     });
 

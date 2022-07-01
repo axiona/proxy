@@ -1,4 +1,4 @@
-import SetHandler from '../../dist/handler/set-list-all';
+import SetHandler from '@alirya/object/proxy/handler/set-list-all';
 import Shuffle from '@alirya/array/shuffle-parameters';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

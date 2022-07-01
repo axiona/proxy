@@ -1,7 +1,7 @@
-import List from '../../dist/list';
+import List from '@alirya/object/proxy/list';
 import New from '@alirya/function/new';
-import Writable from '@alirya/object/property/boolean/writable-parameters';
-import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all';
+import {WritableParameters} from '@alirya/object/property/boolean/writable';
+import GetOwnPropertyDescriptorListAll from '@alirya/object/proxy/handler/get-own-property-descriptor-list-all';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -16,7 +16,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin, 'value')).toBeTrue();
+            expect(WritableParameters(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -31,7 +31,7 @@ describe('plain', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin2, 'value')).toBeTrue();
+            expect(WritableParameters(mixin2, 'value')).toBeTrue();
 
         });
     });
@@ -50,7 +50,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin, 'value')).toBeTrue();
+            expect(WritableParameters(mixin, 'value')).toBeTrue();
 
         });
     });
@@ -67,7 +67,7 @@ describe('plaint setter', function (){
 
         it('test', () => {
 
-            expect(Writable(mixin2, 'value')).toBeTrue();
+            expect(WritableParameters(mixin2, 'value')).toBeTrue();
 
         });
     });

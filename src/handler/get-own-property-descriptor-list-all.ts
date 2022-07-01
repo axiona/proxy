@@ -1,6 +1,7 @@
 import Exists from '@alirya/object/property/boolean/exists';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
+import Descriptor from '@alirya/object/descriptor/from-object';
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,
@@ -23,7 +24,7 @@ export default class GetOwnPropertyDescriptorListAll<
 
     getOwnPropertyDescriptor(target: Target, property: PropertyKey) : PropertyDescriptor | undefined {
 
-        if(Exists(this.descriptor, property)) {
+        if(Exists.Parameters(this.descriptor, property)) {
 
             // @ts-ignore
             return this.descriptor[property];
@@ -33,7 +34,8 @@ export default class GetOwnPropertyDescriptorListAll<
 
         for(const object of this.getHandler(target)) {
 
-            const descriptor = Reflect.getOwnPropertyDescriptor(object, property);
+           // const descriptor = Reflect.getOwnPropertyDescriptor(object, property);
+            const descriptor = Descriptor.Parameters(object, property);
 
             if(descriptor) {
 
