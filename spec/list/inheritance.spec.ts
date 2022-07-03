@@ -1,5 +1,5 @@
-import GetListFirst from '@alirya/object/proxy/handler/get-list-first';
-import List from '@alirya/object/proxy/list';
+import GetListFirst from '../../dist/handler/get-list-first';
+import List from '../../dist/list';
 
 export class Parent {
 

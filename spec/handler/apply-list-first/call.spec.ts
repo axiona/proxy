@@ -1,4 +1,4 @@
-import ApplyListFirst from '@alirya/object/proxy/handler/apply-list-first';
+import ApplyListFirst from '../../../dist/handler/apply-list-first';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
