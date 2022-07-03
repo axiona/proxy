@@ -61,7 +61,7 @@ export default class GetOwnPropertyDescriptorListAll<
 
                 for(const prop of ['configurable', 'enumerable', /*'value',*/ 'writable', 'get', 'set']) {
 
-                    if(descriptor[prop] !== compare[prop]) {
+                    if(descriptor[prop] && compare[prop] && descriptor[prop] !== compare[prop]) {
 
                         throw new Error(`descriptor.${prop} is not consistent between source`);
                     }

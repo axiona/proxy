@@ -372,7 +372,12 @@ describe('plain object', () => {
 
         it('mutated', () => {
 
-            mixin.value = 10;
+            try {
+                mixin.value = 10;
+                fail('redefine accessor only must failed');
+            } catch (error) {
+                expect(error).toBeInstanceOf(Error);
+            }
             mixin.setData('data');
             expect(mixin.getData()).toBe('str', 'set mixin.getData');
             expect(mixin.value).toBe(1, 'set mixin.value');
