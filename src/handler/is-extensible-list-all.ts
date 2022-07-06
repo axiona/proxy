@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class IsExtensibleListAll<
     Target extends object,

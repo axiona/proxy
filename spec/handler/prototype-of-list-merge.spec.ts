@@ -1,4 +1,4 @@
-import GetPrototypeOfListMerge from '../../dist/handler/prototype-of-list-merge';
+import GetPrototypeOfListMerge from '../../dist/handler/prototype-of-list-merge.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,4 +1,4 @@
-import GetListFirst from '../../../dist/handler/get-list-first';
+import GetListFirst from '../../../dist/handler/get-list-first.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

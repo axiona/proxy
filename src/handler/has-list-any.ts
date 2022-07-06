@@ -1,6 +1,6 @@
-import Exists from '@alirya/object/property/boolean/exists';
+import Exists from '@alirya/object/property/boolean/exists.js';
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class HasListAny<
     Target extends object,

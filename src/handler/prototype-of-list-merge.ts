@@ -1,9 +1,9 @@
 import {Required} from 'utility-types';
-import IsObject from '@alirya/object/boolean/object';
-import Getter from '@alirya/object/descriptor/boolean/getter';
-import Setter from '@alirya/object/descriptor/boolean/setter';
-import MergeGetterSetter from '@alirya/object/descriptor/merge-getter-setter';
-import MultiHandlers from './multi-handlers';
+import IsObject from '@alirya/object/boolean/object.js';
+import Getter from '@alirya/object/descriptor/boolean/getter.js';
+import Setter from '@alirya/object/descriptor/boolean/setter.js';
+import MergeGetterSetter from '@alirya/object/descriptor/merge-getter-setter.js';
+import MultiHandlers from './multi-handlers.js';
 
 export default class PrototypeOfListMerge<
     Target extends object,

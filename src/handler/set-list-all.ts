@@ -1,8 +1,8 @@
-import Exists from '@alirya/object/property/boolean/exists';
-import Writable from '@alirya/object/property/boolean/writable';
+import Exists from '@alirya/object/property/boolean/exists.js';
+import Writable from '@alirya/object/property/boolean/writable.js';
 import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class SetListAll<
     Target extends object,

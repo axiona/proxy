@@ -1,7 +1,7 @@
-import List from '../../dist/list';
-import New from '@alirya/function/new';
-import {WritableParameters} from '@alirya/object/property/boolean/writable';
-import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all';
+import List from '../../dist/list.js';
+import New from '@alirya/function/new.js';
+import {WritableParameters} from '@alirya/object/property/boolean/writable.js';
+import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

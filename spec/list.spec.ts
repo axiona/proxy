@@ -1,13 +1,13 @@
-import List from '../dist/list';
-import New from '@alirya/function/new';
-import SetListAll from '../dist/handler/set-list-all';
-import GetListFirst from '../dist/handler/get-list-first';
-import HasListAny from '../dist/handler/has-list-any';
+import List from '../dist/list.js';
+import New from '@alirya/function/new.js';
+import SetListAll from '../dist/handler/set-list-all.js';
+import GetListFirst from '../dist/handler/get-list-first.js';
+import HasListAny from '../dist/handler/has-list-any.js';
 import {Mutable} from 'utility-types';
-import {InspectOptions} from 'util';
+import {InspectOptions} from 'util.js';
 import {Object} from 'ts-toolbelt';
-import GetOwnPropertyDescriptorListAll from '../dist/handler/get-own-property-descriptor-list-all';
-import GetPrototypeOfListMerge from '../dist/handler/prototype-of-list-merge';
+import GetOwnPropertyDescriptorListAll from '../dist/handler/get-own-property-descriptor-list-all.js';
+import GetPrototypeOfListMerge from '../dist/handler/prototype-of-list-merge.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

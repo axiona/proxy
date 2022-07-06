@@ -1,4 +1,4 @@
-import OwnKeyList from '../../dist/handler/own-key-list-all';
+import OwnKeyList from '../../dist/handler/own-key-list-all.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

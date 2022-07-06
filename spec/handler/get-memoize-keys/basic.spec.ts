@@ -1,4 +1,4 @@
-import GetMemoizeKeys from '../../../dist/handler/get-memoize-keys';
+import GetMemoizeKeys from '../../../dist/handler/get-memoize-keys.js';
 
 describe('class', () => {
 

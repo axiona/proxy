@@ -1,4 +1,4 @@
-import ApplyListFirst from '../../../dist/handler/apply-list-first';
+import ApplyListFirst from '../../../dist/handler/apply-list-first.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

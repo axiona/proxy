@@ -1,6 +1,6 @@
-import Unique from '@alirya/array/unique-parameters';
+import Unique from '@alirya/array/unique-parameters.js';
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class OwnKeyListAll<
     Target extends object,

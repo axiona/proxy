@@ -1,4 +1,4 @@
-import HasList from '../../dist/handler/has-list-any';
+import HasList from '../../dist/handler/has-list-any.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
