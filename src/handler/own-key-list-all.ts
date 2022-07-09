@@ -1,4 +1,4 @@
-import Unique from '@alirya/array/unique-parameters';
+import {UniqueParameters} from '@alirya/array/unique';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers';
 
@@ -35,7 +35,7 @@ export default class OwnKeyListAll<
             this.keys.push(...Object.getOwnPropertySymbols(object));
             this.keys.push(...Object.getOwnPropertyNames(object));
         }
-        this.keys = Unique(this.keys);
+        this.keys = UniqueParameters(this.keys);
 
         return this.keys;
     }

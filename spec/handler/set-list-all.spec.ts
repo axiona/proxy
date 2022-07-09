@@ -1,5 +1,5 @@
 import SetHandler from '../../dist/handler/set-list-all';
-import Shuffle from '@alirya/array/shuffle-parameters';
+import {ShuffleParameters} from '@alirya/array/shuffle';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -103,7 +103,7 @@ for(let i = 0; i < 5; i++) {
             new Setter
         ];
 
-        Shuffle(list);
+        ShuffleParameters(list);
 
         let getter = new SetHandler(list);
         let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
