@@ -76,6 +76,7 @@
     "prepublishOnly": "cd ../dist",
     "_compile-asset": "cpx \"./{package.json,package-lock.json,LICENSE,Readme.md,.npmignore}\" ./dist/ --verbose",
     "_compile-asset-watch": "cpx \"./{package.json,package-lock.json,LICENSE,README.md,.npmignore}\" ./dist/ --verbose --watch",
-    "prerelease": "npm-run-all _release-remove-compile-cache compile"
+    "prerelease": "npm-run-all _release-remove-compile-cache compile",
+    "installs": "npm i"
   }
 }
