@@ -1,4 +1,4 @@
-import PreventExtensibleList from '../../dist/handler/prevent-extensible-list-all';
+import PreventExtensibleList from '../../dist/handler/prevent-extensible-list-all.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -7,21 +7,21 @@ describe('direct set', () => {
     it('delete', ()=>{
 
         class Class  {
-            data : string = 'class';
+            data  = 'class';
         }
 
-        let object = {
+        const object = {
             data : 'plain'
         };
 
-        let class_ = new Class;
+        const class_ = new Class;
 
-        let original = {
+        const original = {
             data : 'original'
         };
 
-        let getter = new PreventExtensibleList([object, class_]);
-        let proxy = new Proxy(original, getter);
+        const getter = new PreventExtensibleList([object, class_]);
+        const proxy = new Proxy(original, getter);
 
         expect(Object.isExtensible(proxy)).toBe(true);
         Object.preventExtensions(proxy);
@@ -34,21 +34,21 @@ describe('bind', () => {
     it('delete', ()=>{
 
         class Class  {
-            data : string = 'class';
+            data  = 'class';
         }
 
-        let object = {
+        const object = {
             data : 'plain'
         };
 
-        let class_ = new Class;
+        const class_ = new Class;
 
-        let original = {
+        const original = {
             data : 'original'
         };
 
-        let getter = new PreventExtensibleList([object, class_]);
-        let proxy = new Proxy(original, getter.bindTo({}));
+        const getter = new PreventExtensibleList([object, class_]);
+        const proxy = new Proxy(original, getter.bindTo({}));
 
         expect(Object.isExtensible(proxy)).toBe(true);
         Object.preventExtensions(proxy);
@@ -60,21 +60,21 @@ describe('bind', () => {
 describe('check each', () => {
 
     class Class  {
-        data : string = 'class';
+        data  = 'class';
     }
 
-    let object = {
+    const object = {
         data : 'plain'
     };
 
-    let class_ = new Class;
+    const class_ = new Class;
 
-    let original = {
+    const original = {
         data : 'original'
     };
 
-    let getter = new PreventExtensibleList([object, class_]);
-    let proxy = new Proxy(original, getter.bindTo({}));
+    const getter = new PreventExtensibleList([object, class_]);
+    const proxy = new Proxy(original, getter.bindTo({}));
 
     Object.preventExtensions(proxy);
 
@@ -118,21 +118,21 @@ describe('check each', () => {
 describe('check proxy', () => {
 
     class Class  {
-        data : string = 'class';
+        data  = 'class';
     }
 
-    let object = {
+    const object = {
         data : 'plain'
     };
 
-    let class_ = new Class;
+    const class_ = new Class;
 
-    let original = {
+    const original = {
         data : 'original'
     };
 
-    let getter = new PreventExtensibleList([object, class_]);
-    let proxy = new Proxy(original, getter.bindTo({}));
+    const getter = new PreventExtensibleList([object, class_]);
+    const proxy = new Proxy(original, getter.bindTo({}));
 
     Object.preventExtensions(proxy);
 

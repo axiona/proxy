@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class DefinePropertyListAll<
     Target extends object,
@@ -15,9 +15,9 @@ export default class DefinePropertyListAll<
 
     defineProperty(target: Target, property: PropertyKey, attributes: PropertyDescriptor): boolean {
 
-        let result : boolean = true;
+        let result  = true;
 
-        for (let object of this.getHandler(target)) {
+        for (const object of this.getHandler(target)) {
 
             result = Reflect.defineProperty(object, property , attributes) && result;
         }

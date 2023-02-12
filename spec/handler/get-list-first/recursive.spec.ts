@@ -1,10 +1,10 @@
-import GetHandler from '../../../dist/handler/get-list-first';
-import GetOwnPropertyDescriptorListAll from '../../../dist/handler/get-own-property-descriptor-list-all';
-import MergeAnonymous from '../../../dist/handler/merge-anonymous';
-import GetPrototypeOfListMerge from '../../../dist/handler/prototype-of-list-merge';
-import {ReadableParameters} from '@alirya/object/property/boolean/readable';
-import {ExistsParameters} from '@alirya/object/property/boolean/exists';
-import {PickParameters} from '@alirya/object/pick';
+import GetHandler from '../../../dist/handler/get-list-first.js';
+import GetOwnPropertyDescriptorListAll from '../../../dist/handler/get-own-property-descriptor-list-all.js';
+import MergeAnonymous from '../../../dist/handler/merge-anonymous.js';
+import GetPrototypeOfListMerge from '../../../dist/handler/prototype-of-list-merge.js';
+import {ReadableParameters} from '@alirya/object/property/boolean/readable.js';
+import {ExistsParameters} from '@alirya/object/property/boolean/exists.js';
+import {PickParameters} from '@alirya/object/pick.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -61,19 +61,19 @@ class Method {
     }
 }
 
-let property1 = new Property('property 1');
-let property2 = new Symbol_(['1', '2', '2', '3']);
+const property1 = new Property('property 1');
+const property2 = new Symbol_(['1', '2', '2', '3']);
 
 describe('original handler', () => {
 
-    let getter = new GetHandler([property1, property2]);
-    let proxy = <Property & Symbol_> new Proxy({}, getter);
+    const getter = new GetHandler([property1, property2]);
+    const proxy = <Property & Symbol_> new Proxy({}, getter);
 
-    let getter1 = new GetHandler([proxy]);
-    let proxy1 = <Property & Symbol_> new Proxy({}, getter1);
+    const getter1 = new GetHandler([proxy]);
+    const proxy1 = <Property & Symbol_> new Proxy({}, getter1);
 
-    let getter2 = new GetHandler([proxy1]);
-    let proxy2 = <Property & Symbol_> new Proxy({}, getter2);
+    const getter2 = new GetHandler([proxy1]);
+    const proxy2 = <Property & Symbol_> new Proxy({}, getter2);
 
     it('check value', ()=>{
 
@@ -84,9 +84,9 @@ describe('original handler', () => {
 
         expect(typeof proxy2[Symbol.iterator]).toBe('function');
 
-        let values : string[] = [];
+        const values : string[] = [];
 
-        for (let string of proxy2) {
+        for (const string of proxy2) {
 
             values.push(string);
         }
@@ -100,28 +100,28 @@ describe('original handler', () => {
 
 describe('minimum working combination', () => {
 
-    let getter = new GetHandler([property1, property2]);
-    let prototypeOfListMerge = new GetPrototypeOfListMerge([property1, property2]);
-    let descriptor = new GetOwnPropertyDescriptorListAll([property1, property2]);
+    const getter = new GetHandler([property1, property2]);
+    const prototypeOfListMerge = new GetPrototypeOfListMerge([property1, property2]);
+    const descriptor = new GetOwnPropertyDescriptorListAll([property1, property2]);
 
-    let proxy = <Property & Symbol_> new Proxy({}, MergeAnonymous(getter, descriptor,  prototypeOfListMerge));
+    const proxy = <Property & Symbol_> new Proxy({}, MergeAnonymous(getter, descriptor,  prototypeOfListMerge));
 
-    let getter1 = new GetHandler([proxy]);
-    let prototypeOfListMerge1 = new GetPrototypeOfListMerge([proxy]);
-    let descriptor1 = new GetOwnPropertyDescriptorListAll([proxy]);
+    const getter1 = new GetHandler([proxy]);
+    const prototypeOfListMerge1 = new GetPrototypeOfListMerge([proxy]);
+    const descriptor1 = new GetOwnPropertyDescriptorListAll([proxy]);
 
-    let proxy1 = <Property & Symbol_> new Proxy({}, MergeAnonymous(getter1, descriptor1,  prototypeOfListMerge1));
+    const proxy1 = <Property & Symbol_> new Proxy({}, MergeAnonymous(getter1, descriptor1,  prototypeOfListMerge1));
 
-    let getter2 = new GetHandler([proxy1]);
-    let proxy2 = <Property & Symbol_> new Proxy({}, getter2);
+    const getter2 = new GetHandler([proxy1]);
+    const proxy2 = <Property & Symbol_> new Proxy({}, getter2);
 
     it('check value', ()=>{
 
-        let iterated : boolean = false;
+        let iterated  = false;
 
         let i = 0;
 
-        for (let string of proxy2) {
+        for (const string of proxy2) {
 
             iterated = true;
 

@@ -1,4 +1,4 @@
-import OwnKeyList from '../../dist/handler/own-key-list-all';
+import OwnKeyList from '../../dist/handler/own-key-list-all.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -29,7 +29,7 @@ class Symbols  {
 }
 
 class Property {
-    public property : string = 'property';
+    public property  = 'property';
     constructor(
 
     ) {
@@ -48,26 +48,26 @@ describe('direct set', () => {
 
     it('test', ()=>{
 
-        let plain = Plain;
-        let plainSymbol = PlainSymbol;
-        let getter_ = new Getter();
-        let setter = new Setter();
-        let property = new Property();
-        let method = new Method();
-        let symbols = new Symbols();
-        let original = {};
+        const plain = Plain;
+        const plainSymbol = PlainSymbol;
+        const getter_ = new Getter();
+        const setter = new Setter();
+        const property = new Property();
+        const method = new Method();
+        const symbols = new Symbols();
+        const original = {};
 
-        let handlers = [plain, getter_, setter, property, method, symbols, plainSymbol];
-        let getter = new OwnKeyList(handlers);
-        let proxy = new Proxy(original, getter);
+        const handlers = [plain, getter_, setter, property, method, symbols, plainSymbol];
+        const getter = new OwnKeyList(handlers);
+        const proxy = new Proxy(original, getter);
 
 
-        for(let property of ['plain','property']) {
+        for(const property of ['plain','property']) {
 
             expect(Object.getOwnPropertyNames(proxy).includes(property)).toBe(true);
         }
 
-        for(let property of [Symbol('plainSymbol')]) {
+        for(const property of [Symbol('plainSymbol')]) {
 
             expect(Object.getOwnPropertySymbols(proxy).map(sym=>sym.toString()).includes(property.toString())).toBe(true);
         }

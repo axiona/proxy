@@ -1,5 +1,5 @@
-import SetHandler from '../../dist/handler/set-list-all';
-import {ShuffleParameters} from '@alirya/array/shuffle';
+import SetHandler from '../../dist/handler/set-list-all.js';
+import {ShuffleParameters} from '@alirya/array/shuffle.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -46,11 +46,11 @@ class Method {
 
 describe('direct set', () => {
 
-    let property1 = new Property('property 1');
-    let property2 = new Property('property 2');
+    const property1 = new Property('property 1');
+    const property2 = new Property('property 2');
 
-    let handler = new SetHandler<Type<string>>([property1, property2]);
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
+    const handler = new SetHandler<Type<string>>([property1, property2]);
+    const proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     it('check value', ()=>{
 
@@ -70,14 +70,14 @@ describe('direct set', () => {
 
 describe('bind set', () => {
 
-    let handler = {};
-    let property1 = new Property('property 1');
-    let property2 = new Property('property 2');
+    const handler = {};
+    const property1 = new Property('property 1');
+    const property2 = new Property('property 2');
 
-    let setter = new SetHandler<Type<string>>([property1, property2]);
+    const setter = new SetHandler<Type<string>>([property1, property2]);
     setter.bindTo(handler);
 
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
+    const proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     for(let i = 0; i < 5; i++) {
 
@@ -97,7 +97,7 @@ for(let i = 0; i < 5; i++) {
 
     describe('order', () => {
 
-        let list = [
+        const list = [
             plain,
             new Property,
             new Setter
@@ -105,8 +105,8 @@ for(let i = 0; i < 5; i++) {
 
         ShuffleParameters(list);
 
-        let getter = new SetHandler(list);
-        let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
+        const getter = new SetHandler(list);
+        const proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
         // retest
         for(let i = 0; i < 5; i++) {
@@ -115,7 +115,7 @@ for(let i = 0; i < 5; i++) {
 
                 proxy.data = 'value' + i;
 
-                for (let object of list) {
+                for (const object of list) {
 
                     if(object === plain) {
 

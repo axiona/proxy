@@ -1,4 +1,4 @@
-import GetHandler from '../../../dist/handler/get-list-first';
+import GetHandler from '../../../dist/handler/get-list-first.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -13,13 +13,13 @@ class Property {
     }
 }
 
-let property1 = new Property('property 1');
-let property2 = new Property('property 2');
+const property1 = new Property('property 1');
+const property2 = new Property('property 2');
 
 describe('direct set', () => {
 
-    let getter = new GetHandler([property1, property2]);
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
+    const getter = new GetHandler([property1, property2]);
+    const proxy = new Proxy<Type<string>>(<Type<string>>{}, getter);
 
     it('check value', ()=>{
 
@@ -30,11 +30,11 @@ describe('direct set', () => {
 
 describe('bind set', () => {
 
-    let handler : ProxyHandler<object> = {};
-    let getter = new GetHandler([property1, property2]);
+    const handler : ProxyHandler<object> = {};
+    const getter = new GetHandler([property1, property2]);
     getter.bindTo(handler);
 
-    let proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
+    const proxy = new Proxy<Type<string>>(<Type<string>>{}, handler);
 
     it('check handler', ()=>{
         expect(handler.get).toBeInstanceOf(Function);

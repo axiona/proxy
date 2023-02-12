@@ -1,5 +1,5 @@
-import GetListFirst from '../../dist/handler/get-list-first';
-import List from '../../dist/list';
+import GetListFirst from '../../dist/handler/get-list-first.js';
+import List from '../../dist/list.js';
 
 export class Parent {
 

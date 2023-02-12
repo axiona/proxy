@@ -1,4 +1,4 @@
-import HasList from '../../dist/handler/has-list-any';
+import HasList from '../../dist/handler/has-list-any.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -16,7 +16,7 @@ class Setter  {
 }
 
 class Property {
-    public property : string = 'property';
+    public property  = 'property';
     constructor(
 
     ) {
@@ -36,16 +36,16 @@ describe('direct set', () => {
 
     it('test', ()=>{
 
-        let plain = Plain;
-        let getter_ = new Getter();
-        let setter = new Setter();
-        let property = new Property();
-        let method = new Method();
-        let original = {};
+        const plain = Plain;
+        const getter_ = new Getter();
+        const setter = new Setter();
+        const property = new Property();
+        const method = new Method();
+        const original = {};
 
-        let handlers = [plain, getter_, setter, property, method];
-        let getter = new HasList(handlers);
-        let proxy = new Proxy(original, getter);
+        const handlers = [plain, getter_, setter, property, method];
+        const getter = new HasList(handlers);
+        const proxy = new Proxy(original, getter);
 
         expect('plain' in proxy).toBe(true);
         expect('getter' in proxy).toBe(true);
@@ -59,16 +59,16 @@ describe('bind', () => {
 
     it('test', ()=>{
 
-        let plain = Plain;
-        let getter_ = new Getter();
-        let setter = new Setter();
-        let property = new Property();
-        let method = new Method();
-        let original = {};
+        const plain = Plain;
+        const getter_ = new Getter();
+        const setter = new Setter();
+        const property = new Property();
+        const method = new Method();
+        const original = {};
 
-        let handlers = [plain, getter_, setter, property, method];
-        let getter = new HasList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}));
+        const handlers = [plain, getter_, setter, property, method];
+        const getter = new HasList(handlers);
+        const proxy = new Proxy(original, getter.bindTo({}));
 
         expect('plain' in proxy).toBe(true);
         expect('getter' in proxy).toBe(true);
@@ -82,16 +82,16 @@ describe('non exists', () => {
 
     it('test', ()=>{
 
-        let plain = Plain;
-        let getter_ = new Getter();
-        let setter = new Setter();
-        let property = new Property();
-        let method = new Method();
-        let original = {};
+        const plain = Plain;
+        const getter_ = new Getter();
+        const setter = new Setter();
+        const property = new Property();
+        const method = new Method();
+        const original = {};
 
-        let handlers = [plain, getter_, setter, property, method];
-        let getter = new HasList(handlers);
-        let proxy = new Proxy(original, getter.bindTo({}));
+        const handlers = [plain, getter_, setter, property, method];
+        const getter = new HasList(handlers);
+        const proxy = new Proxy(original, getter.bindTo({}));
 
         expect('nonExists' in proxy).toBe(false);
     });

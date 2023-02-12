@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class IsExtensibleListAll<
     Target extends object,
@@ -29,7 +29,7 @@ export default class IsExtensibleListAll<
 
         this.extensible = true;
 
-        for(let object of this.getHandler(target)) {
+        for(const object of this.getHandler(target)) {
 
             this.extensible = Object.isExtensible(object) && this.extensible;
         }

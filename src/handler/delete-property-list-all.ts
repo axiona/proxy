@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class DeletePropertyListAll<
     Target extends object,
@@ -16,7 +16,7 @@ export default class DeletePropertyListAll<
 
         let deleted = false;
 
-        for (let handler of this.getHandler(target)) {
+        for (const handler of this.getHandler(target)) {
 
             deleted = (delete handler[property]) || deleted;
         }

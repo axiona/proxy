@@ -1,8 +1,8 @@
-import Exists from '@alirya/object/property/boolean/exists';
-import Writable from '@alirya/object/property/boolean/writable';
+import Exists from '@alirya/object/property/boolean/exists.js';
+import Writable from '@alirya/object/property/boolean/writable.js';
 import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class SetListAll<
     Target extends object,
@@ -27,9 +27,9 @@ export default class SetListAll<
 
         if(Exists.Parameters(this.settable, property)) {
 
-            let list = this.settable[<string|number>property] as Partial<List.UnionOf<Objects>>[];
+            const list = this.settable[<string|number>property] as Partial<List.UnionOf<Objects>>[];
 
-            for(let object of list) {
+            for(const object of list) {
 
                 object[property] = value;
             }
@@ -39,7 +39,7 @@ export default class SetListAll<
 
         const list : Partial<List.UnionOf<Objects>>[] = [];
 
-        for (let handler of this.getHandler(target)) {
+        for (const handler of this.getHandler(target)) {
 
             if(Writable.Parameters(handler, property)) {
 

@@ -1,11 +1,11 @@
-import GetPrototypeOfListMerge from '../../dist/handler/prototype-of-list-merge';
+import GetPrototypeOfListMerge from '../../dist/handler/prototype-of-list-merge.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('direct set', () => {
 
     class Class  {
-        data : string = 'class';
+        data  = 'class';
     }
 
     class Getter  {
@@ -16,18 +16,18 @@ describe('direct set', () => {
         set value (data) {}
     }
 
-    let class_ = new Class;
-    let getter = new Getter;
-    let setter = new Setter;
+    const class_ = new Class;
+    const getter = new Getter;
+    const setter = new Setter;
 
     it('descriptor', ()=>{
 
 
-        let prototype = new GetPrototypeOfListMerge([getter, class_, setter]);
-        let proxy = new Proxy({}, prototype);
+        const prototype = new GetPrototypeOfListMerge([getter, class_, setter]);
+        const proxy = new Proxy({}, prototype);
 
 
-        let value = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(proxy), 'value');
+        const value = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(proxy), 'value');
 
         if(value) {
 

@@ -1,7 +1,7 @@
-import List from '../../dist/list';
-import New from '@alirya/function/new';
-import {WritableParameters} from '@alirya/object/property/boolean/writable';
-import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all';
+import List from '../../dist/list.js';
+import New from '@alirya/function/new.js';
+import {WritableParameters} from '@alirya/object/property/boolean/writable.js';
+import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -11,8 +11,8 @@ describe('plain', function (){
 
     describe('simple', function (){
 
-        let mutator = {value:1};
-        let mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
+        const mutator = {value:1};
+        const mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
 
         it('test', () => {
 
@@ -24,10 +24,10 @@ describe('plain', function (){
 
     describe('recursive', function (){
 
-        let mutator = {value:1};
-        let mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
-        let mixin1 = List([mixin], [New(GetOwnPropertyDescriptorListAll)]);
-        let mixin2 = List([mixin1], [New(GetOwnPropertyDescriptorListAll)]);
+        const mutator = {value:1};
+        const mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin1 = List([mixin], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin2 = List([mixin1], [New(GetOwnPropertyDescriptorListAll)]);
 
         it('test', () => {
 
@@ -43,10 +43,10 @@ describe('plaint setter', function (){
 
     describe('simple', function (){
 
-        let mutator = {
+        const mutator = {
             set value(value) {}
         };
-        let mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
 
         it('test', () => {
 
@@ -58,12 +58,12 @@ describe('plaint setter', function (){
 
     describe('recursive', function (){
 
-        let mutator = {
+        const mutator = {
             set value(value) {}
         };
-        let mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
-        let mixin1 = List([mixin], [New(GetOwnPropertyDescriptorListAll)]);
-        let mixin2 = List([mixin1], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin = List([mutator], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin1 = List([mixin], [New(GetOwnPropertyDescriptorListAll)]);
+        const mixin2 = List([mixin1], [New(GetOwnPropertyDescriptorListAll)]);
 
         it('test', () => {
 

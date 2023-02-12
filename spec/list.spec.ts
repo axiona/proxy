@@ -1,13 +1,13 @@
-import List from '../dist/list';
-import New from '@alirya/function/new';
-import SetListAll from '../dist/handler/set-list-all';
-import GetListFirst from '../dist/handler/get-list-first';
-import HasListAny from '../dist/handler/has-list-any';
+import List from '../dist/list.js';
+import New from '@alirya/function/new.js';
+import SetListAll from '../dist/handler/set-list-all.js';
+import GetListFirst from '../dist/handler/get-list-first.js';
+import HasListAny from '../dist/handler/has-list-any.js';
 import {Mutable} from 'utility-types';
 import {InspectOptions} from 'util';
 import {Object} from 'ts-toolbelt';
-import GetOwnPropertyDescriptorListAll from '../dist/handler/get-own-property-descriptor-list-all';
-import GetPrototypeOfListMerge from '../dist/handler/prototype-of-list-merge';
+import GetOwnPropertyDescriptorListAll from '../dist/handler/get-own-property-descriptor-list-all.js';
+import GetPrototypeOfListMerge from '../dist/handler/prototype-of-list-merge.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -19,7 +19,7 @@ it('compiler compatibility', () => {
     let map = new Map();
     let set = new Set();
 
-    let result = List([map, set], []);
+    const result = List([map, set], []);
 
     map = result;
     set = result;
@@ -28,10 +28,10 @@ it('compiler compatibility', () => {
 
 describe('test', () => {
 
-    let a = {a : 1};
-    let b = {b : ''};
+    const a = {a : 1};
+    const b = {b : ''};
 
-    let result = List([a, b], [New(SetListAll), New(GetListFirst)]);
+    const result = List([a, b], [New(SetListAll), New(GetListFirst)]);
 
     it('test get', ()=>{
 
@@ -140,8 +140,8 @@ describe('single', function () {
 
     describe('mutator', () => {
 
-        let mutator = new Mutator(10);
-        let mixin = List([mutator], []);
+        const mutator = new Mutator(10);
+        const mixin = List([mutator], []);
 
         it('default', () => {
 
@@ -152,8 +152,8 @@ describe('single', function () {
 
     describe('method', () => {
 
-        let method = new Method('a');
-        let mixin = List([method], [New(GetListFirst)]);
+        const method = new Method('a');
+        const mixin = List([method], [New(GetListFirst)]);
 
         it('default', () => {
 
@@ -181,15 +181,15 @@ describe('single', function () {
 
     describe('symbol', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
-        let symbol = new Symbol_(data);
-        let mixin = List([symbol], [New(GetListFirst), New(SetListAll)]);
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
+        const symbol = new Symbol_(data);
+        const mixin = List([symbol], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i]);
                 i++;
             }
@@ -201,7 +201,7 @@ describe('single', function () {
             mixin.iterable = data2;
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
 
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
@@ -212,7 +212,7 @@ describe('single', function () {
         it('original', () => {
 
             let i = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
 
                 expect(val).toBe(data2[i]);
                 i++;
@@ -223,8 +223,8 @@ describe('single', function () {
 
     describe('property', () => {
 
-        let property = new Property('string');
-        let mixin = List([property], [New(GetListFirst), New(SetListAll)]);
+        const property = new Property('string');
+        const mixin = List([property], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -251,9 +251,9 @@ describe('plain object', () => {
 
     describe('with accessor', () => {
 
-        let object  = {};
-        let accessor = new Accessor(10);
-        let mixin = <typeof object & typeof accessor> List([object, accessor], [New(GetListFirst), New(SetListAll)]);//Mixin(object, accessor);
+        const object  = {};
+        const accessor = new Accessor(10);
+        const mixin = <typeof object & typeof accessor> List([object, accessor], [New(GetListFirst), New(SetListAll)]);//Mixin(object, accessor);
 
         it('initial check', () => {
 
@@ -264,8 +264,8 @@ describe('plain object', () => {
 
     describe('with method', () => {
 
-        let method = new Method('a');
-        let mixin = List([method], [New(GetListFirst)]);
+        const method = new Method('a');
+        const mixin = List([method], [New(GetListFirst)]);
 
         it('default', () => {
 
@@ -293,15 +293,15 @@ describe('plain object', () => {
 
     describe('with symbol', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
-        let symbol = new Symbol_(data);
-        let mixin = List([symbol], [New(GetListFirst), New(SetListAll)]);
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
+        const symbol = new Symbol_(data);
+        const mixin = List([symbol], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i]);
                 i++;
             }
@@ -313,7 +313,7 @@ describe('plain object', () => {
             mixin.iterable = data2;
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -323,7 +323,7 @@ describe('plain object', () => {
         it('original', () => {
 
             let i = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[i]);
                 i++;
             }
@@ -334,8 +334,8 @@ describe('plain object', () => {
 
     describe('with property', () => {
 
-        let property = new Property('string');
-        let mixin = List([property],  [New(GetListFirst), New(SetListAll)]);
+        const property = new Property('string');
+        const mixin = List([property],  [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -359,10 +359,10 @@ describe('plain object', () => {
 
     describe('with accessor, mutator, method', () => {
 
-        let method = new Method('str');
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
-        let mixin = <Mutable<Accessor> & Mutator & Method> List([accessor, mutator, method], [New(GetListFirst)]);
+        const method = new Method('str');
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
+        const mixin = <Mutable<Accessor> & Mutator & Method> List([accessor, mutator, method], [New(GetListFirst)]);
 
         it('default', () => {
 
@@ -395,19 +395,19 @@ describe('plain object', () => {
 
     describe('with accessor, mutator, symbol', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
-        let symbol = new Symbol_(data);
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
-        let mixin = <Mutable<Accessor> & Mutator & Symbol_> List([accessor, mutator, symbol], [New(GetListFirst), New(SetListAll)]);
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
+        const symbol = new Symbol_(data);
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
+        const mixin = <Mutable<Accessor> & Mutator & Symbol_> List([accessor, mutator, symbol], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
             expect(mixin.value).toBe(1, 'mixin.value');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -421,7 +421,7 @@ describe('plain object', () => {
             expect(mixin.value).toBe(1, 'mixin.value');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -430,7 +430,7 @@ describe('plain object', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }
@@ -444,15 +444,15 @@ describe('plain object', () => {
 
     describe('with accessor, mutator, symbol, method, property', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
 
-        let symbol = new Symbol_(data);
-        let method = new Method('method');
-        let property = new Property('property');
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
-        let mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([accessor, mutator, symbol, method, property], [New(GetListFirst), New(SetListAll)]);
+        const symbol = new Symbol_(data);
+        const method = new Method('method');
+        const property = new Property('property');
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
+        const mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([accessor, mutator, symbol, method, property], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -461,7 +461,7 @@ describe('plain object', () => {
             expect(mixin.data).toBe('method', 'method.getData');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -479,7 +479,7 @@ describe('plain object', () => {
             expect(mixin.data).toBe('data', 'mixin.data');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -488,7 +488,7 @@ describe('plain object', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }
@@ -805,9 +805,9 @@ describe('accessor', () => {
 
     describe('with mutator', () => {
 
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
-        let mixin = <Object.Writable<Accessor> & Mutator> List([accessor, mutator], [New(GetListFirst), New(SetListAll)]);
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
+        const mixin = <Object.Writable<Accessor> & Mutator> List([accessor, mutator], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -832,11 +832,11 @@ describe('accessor', () => {
 
     describe('with mutator, method', () => {
 
-        let method = new Method('str');
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
+        const method = new Method('str');
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
         //let mixin = <Mutable<Accessor> & Mutator & Method> Mixin(accessor, mutator, method);
-        let mixin = <Mutable<Accessor> & Mutator & Method>List([accessor, mutator, method], [New(GetListFirst), New(SetListAll)]);
+        const mixin = <Mutable<Accessor> & Mutator & Method>List([accessor, mutator, method], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -865,21 +865,21 @@ describe('accessor', () => {
 
     describe('with mutator, symbol', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
 
-        let symbol = new Symbol_(data);
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
+        const symbol = new Symbol_(data);
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
         //let mixin = <Mutable<Accessor> & Mutator & Symbol_> Mixin(accessor, mutator, symbol);
-        let mixin =  <Mutable<Accessor> & Mutator & Symbol_> List([accessor, mutator, symbol], [New(GetListFirst), New(SetListAll)]);
+        const mixin =  <Mutable<Accessor> & Mutator & Symbol_> List([accessor, mutator, symbol], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
             expect(mixin.value).toBe(1, 'mixin.value');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -893,7 +893,7 @@ describe('accessor', () => {
             expect(mixin.value).toBe(1, 'mixin.value');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -902,7 +902,7 @@ describe('accessor', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }
@@ -916,16 +916,16 @@ describe('accessor', () => {
 
     describe('with mutator, symbol, method, property', () => {
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
 
-        let symbol = new Symbol_(data);
-        let method = new Method('method');
-        let property = new Property('property');
-        let accessor = new Accessor(2);
-        let mutator = new Mutator(1);
+        const symbol = new Symbol_(data);
+        const method = new Method('method');
+        const property = new Property('property');
+        const accessor = new Accessor(2);
+        const mutator = new Mutator(1);
         //let mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> Mixin(accessor, mutator, symbol, method, property);
-        let mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property>
+        const mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property>
             List([accessor, mutator, symbol, method, property], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
@@ -935,7 +935,7 @@ describe('accessor', () => {
             expect(mixin.data).toBe('method', 'method.getData');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -953,7 +953,7 @@ describe('accessor', () => {
             expect(mixin.data).toBe('data', 'mixin.data');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -962,7 +962,7 @@ describe('accessor', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }
@@ -982,10 +982,10 @@ describe('mutator', () => {
 
     describe('with accessor', () => {
 
-        let accessor = new Accessor(1);
-        let mutator = new Mutator(2);
+        const accessor = new Accessor(1);
+        const mutator = new Mutator(2);
        // let mixin = <Mutable<Accessor>> Mixin(mutator, accessor);
-        let mixin = <Mutable<Accessor>> List([mutator, accessor], [New(GetListFirst), New(SetListAll)]);
+        const mixin = <Mutable<Accessor>> List([mutator, accessor], [New(GetListFirst), New(SetListAll)]);
 
         it('default', () => {
 
@@ -1015,27 +1015,27 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
 
     describe('accessor base', () => {
 
-        let option : InspectOptions = {
+        const option : InspectOptions = {
             showHidden : true,
             getters : true,
             depth : 0
         };
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
 
-        let symbol = new Symbol_(data);
-        let method = new Method('method');
+        const symbol = new Symbol_(data);
+        const method = new Method('method');
         //let mixin1 = <Symbol_ & Mutable<Method>> Mixin (symbol, method);
-        let mixin1 = <Symbol_ & Mutable<Method>> List([symbol, method], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
+        const mixin1 = <Symbol_ & Mutable<Method>> List([symbol, method], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
 
-        let property = new Property('property');
-        let accessor = new Accessor(1);
-        let mixin2 = <Mutable<Accessor> & Symbol_ & Mutable<Method> & Property> List([accessor, mixin1, property], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
+        const property = new Property('property');
+        const accessor = new Accessor(1);
+        const mixin2 = <Mutable<Accessor> & Symbol_ & Mutable<Method> & Property> List([accessor, mixin1, property], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
 
-        let mutator = new Mutator(2);
+        const mutator = new Mutator(2);
 
-        let mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([mixin2, mutator], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
+        const mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([mixin2, mutator], [New(GetListFirst), New(SetListAll), New(HasListAny), New(GetOwnPropertyDescriptorListAll), New(GetPrototypeOfListMerge)]);
 
         it('default', () => {
 
@@ -1044,7 +1044,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
             expect(mixin.data).toBe('method', 'method.getData');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -1062,7 +1062,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
             expect(mixin.data).toBe('data', 'mixin.data');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -1071,7 +1071,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }
@@ -1087,25 +1087,25 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
 
     describe('plain object base', () => {
 
-        let option : InspectOptions = {
+        const option : InspectOptions = {
             showHidden : true,
             getters : true,
             depth : 0
         };
 
-        let data = ['a', 'b'];
-        let data2 = ['aa', 'bb', 'cc'];
+        const data = ['a', 'b'];
+        const data2 = ['aa', 'bb', 'cc'];
 
-        let symbol = new Symbol_(data);
-        let method = new Method('method');
-        let mixin1 = <Symbol_ & Mutable<Method>> List([symbol, method], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
+        const symbol = new Symbol_(data);
+        const method = new Method('method');
+        const mixin1 = <Symbol_ & Mutable<Method>> List([symbol, method], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
 
-        let property = new Property('property');
-        let accessor = new Accessor(1);
-        let mixin2 = <Mutable<Accessor> &  Symbol_ & Mutable<Method> & Property> List([accessor, mixin1, property], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
+        const property = new Property('property');
+        const accessor = new Accessor(1);
+        const mixin2 = <Mutable<Accessor> &  Symbol_ & Mutable<Method> & Property> List([accessor, mixin1, property], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
 
-        let mutator = new Mutator(2);
-        let mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([mixin2, mutator], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
+        const mutator = new Mutator(2);
+        const mixin = <Mutable<Accessor> & Mutator & Symbol_ & Mutable<Method> & Property> List([mixin2, mutator], [New(GetListFirst), New(SetListAll), New(GetPrototypeOfListMerge), New(GetOwnPropertyDescriptorListAll)]);
 
         it('default', () => {
 
@@ -1114,7 +1114,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
             expect(mixin.data).toBe('method', 'method.getData');
 
             let i = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data[i], `mixin[Symbol.iterator] ${i}`);
                 i++;
             }
@@ -1131,7 +1131,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
             expect(mixin.data).toBe('data', 'mixin.data');
 
             let j = 0;
-            for (let val of mixin) {
+            for (const val of mixin) {
                 expect(val).toBe(data2[j], `mixin[Symbol.iterator] ${j}`);
                 j++;
             }
@@ -1140,7 +1140,7 @@ describe('chain (symbol, method), (property, accessor), mutator', () => {
         it('original', () => {
 
             let k = 0;
-            for (let val of symbol) {
+            for (const val of symbol) {
                 expect(val).toBe(data2[k], `mixin[Symbol.iterator] ${k}`);
                 k++;
             }

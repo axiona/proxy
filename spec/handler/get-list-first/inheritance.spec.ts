@@ -1,4 +1,4 @@
-import GetListFirst from '../../../dist/handler/get-list-first';
+import GetListFirst from '../../../dist/handler/get-list-first.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -26,7 +26,7 @@ class Ancestor {
 class Parent extends Ancestor {
 
     constructor(
-        ancestor : string = 'ancestor',
+        ancestor  = 'ancestor',
         public _parent : string = 'parent'
     ) {
         super(ancestor);
@@ -46,8 +46,8 @@ class Parent extends Ancestor {
 class Child extends Parent {
 
     constructor(
-        ancestor : string = 'ancestor',
-        parent : string = 'parent',
+        ancestor  = 'ancestor',
+        parent  = 'parent',
         public _children : string = 'children'
     ) {
         super(ancestor, parent);
@@ -69,10 +69,10 @@ describe('single', () => {
 
     describe('class', () => {
 
-        let property = new Child();
+        const property = new Child();
 
-        let getter = new GetListFirst([property]);
-        let proxy = new Proxy<Child>(<Child>{}, getter);
+        const getter = new GetListFirst([property]);
+        const proxy = new Proxy<Child>(<Child>{}, getter);
 
         // repeat test
         for(let i = 0; i < 5; i++) {

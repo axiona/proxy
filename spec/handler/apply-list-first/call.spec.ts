@@ -1,4 +1,4 @@
-import ApplyListFirst from '../../../dist/handler/apply-list-first';
+import ApplyListFirst from '../../../dist/handler/apply-list-first.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -13,13 +13,13 @@ class Property {
     }
 }
 
-let property1 = function (... argument : any[]){ return ['property 1', ...argument];};
-let property2 = function (... argument : any[]){ return ['property 2', ...argument];};
+const property1 = function (... argument : any[]){ return ['property 1', ...argument];};
+const property2 = function (... argument : any[]){ return ['property 2', ...argument];};
 
 describe('direct set', () => {
 
-    let getter = new ApplyListFirst([property1, property2], false);
-    let proxy = <Function> new Proxy(function () {}, getter);
+    const getter = new ApplyListFirst([property1, property2], false);
+    const proxy = <Function> new Proxy(function () {}, getter);
 
     it('check value', ()=>{
 
@@ -31,11 +31,11 @@ describe('direct set', () => {
 
 describe('bind set', () => {
 
-    let handler : ProxyHandler<object> = {};
-    let getter = new ApplyListFirst([property1, property2], false);
+    const handler : ProxyHandler<object> = {};
+    const getter = new ApplyListFirst([property1, property2], false);
     getter.bindTo(handler);
 
-    let proxy = <Function> new Proxy(()=>undefined, handler);
+    const proxy = <Function> new Proxy(()=>undefined, handler);
 
     it('check handler', ()=>{
         expect(handler.apply).toBeInstanceOf(Function);

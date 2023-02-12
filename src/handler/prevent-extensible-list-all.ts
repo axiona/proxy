@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class PreventExtensibleListAll<
     Target extends object,
@@ -22,9 +22,9 @@ export default class PreventExtensibleListAll<
 
     preventExtensions(target: Target): boolean {
 
-        let result : boolean = true;
+        let result  = true;
 
-        for(let object of this.getHandler(target)) {
+        for(const object of this.getHandler(target)) {
 
             result = Reflect.preventExtensions(object) && result;
         }

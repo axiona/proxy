@@ -1,6 +1,6 @@
-import {UniqueParameters} from '@alirya/array/unique';
+import {UniqueParameters} from '@alirya/array/unique.js';
 import {Required} from 'utility-types';
-import MultiHandlers from './multi-handlers';
+import MultiHandlers from './multi-handlers.js';
 
 export default class OwnKeyListAll<
     Target extends object,
@@ -30,7 +30,7 @@ export default class OwnKeyListAll<
 
         this.keys = [];
 
-        for(let object of this.getHandler(target)) {
+        for(const object of this.getHandler(target)) {
 
             this.keys.push(...Object.getOwnPropertySymbols(object));
             this.keys.push(...Object.getOwnPropertyNames(object));

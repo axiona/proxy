@@ -1,6 +1,6 @@
 import {Required} from 'utility-types';
-import IsFunction from '@alirya/function/boolean/function';
-import MultiHandlers from './multi-handlers';
+import IsFunction from '@alirya/function/boolean/function.js';
+import MultiHandlers from './multi-handlers.js';
 
 export default class ApplyListFirst<
     Target extends object,
@@ -38,7 +38,7 @@ export default class ApplyListFirst<
 
         this.callback = null;
 
-        for (let handler of this.getHandler(target)) {
+        for (const handler of this.getHandler(target)) {
 
             if(IsFunction(handler)) {
 

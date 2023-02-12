@@ -1,4 +1,4 @@
-import GetMemoizeKeys from '../../../dist/handler/get-memoize-keys';
+import GetMemoizeKeys from '../../../dist/handler/get-memoize-keys.js';
 
 describe('class', () => {
 
@@ -10,12 +10,12 @@ describe('class', () => {
         }
     }
 
-    let property = new Test();
+    const property = new Test();
 
-    let getter = new GetMemoizeKeys(['data']);
-    let proxy = new Proxy<Test>(property, getter);
+    const getter = new GetMemoizeKeys(['data']);
+    const proxy = new Proxy<Test>(property, getter);
 
-    let value = proxy.data;
+    const value = proxy.data;
 
     // repeat test
     for(let i = 0; i < 5; i++) {
@@ -34,10 +34,10 @@ describe('plain', () => {
         get data () {return Math.random().toString();}
     };
 
-    let getter = new GetMemoizeKeys(['data']);
-    let proxy = new Proxy<typeof plain>(plain, getter);
+    const getter = new GetMemoizeKeys(['data']);
+    const proxy = new Proxy<typeof plain>(plain, getter);
 
-    let value = proxy.data;
+    const value = proxy.data;
 
     // repeat test
     for(let i = 0; i < 5; i++) {

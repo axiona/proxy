@@ -31,7 +31,8 @@
     "dist",
     "**/*.d.ts",
     "dist/**/*.d.ts",
-    "**/dist/**/*.d.ts"
+    "**/dist/**/*.d.ts",
+    "./dist/**/*"
   ],
   "include": [
     "src/**/*"
