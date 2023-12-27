@@ -52,9 +52,9 @@
     "@types/node": "^16.11.7"
   },
   "scripts": {
-    "spec-run-js": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json",
-    "spec-run": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json --reporter=jasmine-ts-console-reporter",
-    "spec-run-debug": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine-debug.json --reporter=jasmine-ts-console-reporter",
+    "spec-run-js": "jasmine --config=./jasmine.json",
+    "spec-run": "jasmine --config=./jasmine.json",
+    "spec-run-debug": "jasmine --config=./jasmine-debug.json",
     "spec": "npm-run-all spec-compile spec-run",
     "spec-compile": "npm-run-all _spec-compile-script spec-cleanup",
     "spec-compile-watch": "npm-run-all --sequential _spec-ensure-directory --parallel _spec-compile-watch-script spec-cleanup-watch",
