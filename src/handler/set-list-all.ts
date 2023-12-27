@@ -1,5 +1,5 @@
-import Exists from '@alirya/object/property/boolean/exists.js';
-import Writable from '@alirya/object/property/boolean/writable.js';
+import Exists from '@axiona/object/property/boolean/exists.js';
+import Writable from '@axiona/object/property/boolean/writable.js';
 import {List} from 'ts-toolbelt';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers.js';

@@ -1,6 +1,6 @@
 import List from '../../dist/list.js';
-import New from '@alirya/function/new.js';
-import {WritableParameters} from '@alirya/object/property/boolean/writable.js';
+import New from '@axiona/function/new.js';
+import {WritableParameters} from '@axiona/object/property/boolean/writable.js';
 import GetOwnPropertyDescriptorListAll from '../../dist/handler/get-own-property-descriptor-list-all.js';
 
 

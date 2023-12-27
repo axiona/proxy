@@ -1,7 +1,7 @@
-import Exists from '@alirya/object/property/boolean/exists.js';
+import Exists from '@axiona/object/property/boolean/exists.js';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers.js';
-import Descriptor from '@alirya/object/descriptor/from-object.js';
+import Descriptor from '@axiona/object/descriptor/from-object.js';
 
 export default class GetOwnPropertyDescriptorListAll<
     Target extends object,

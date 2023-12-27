@@ -1,5 +1,5 @@
-import Merge from '@alirya/array/intersect.js';
-import Exists from '@alirya/object/property/boolean/exists.js';
+import Merge from '@axiona/array/intersect.js';
+import Exists from '@axiona/object/property/boolean/exists.js';
 
 export default function MergeAnonymous<
     Target extends object,

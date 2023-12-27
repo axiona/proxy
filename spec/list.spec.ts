@@ -1,5 +1,5 @@
 import List from '../dist/list.js';
-import New from '@alirya/function/new.js';
+import New from '@axiona/function/new.js';
 import SetListAll from '../dist/handler/set-list-all.js';
 import GetListFirst from '../dist/handler/get-list-first.js';
 import HasListAny from '../dist/handler/has-list-any.js';

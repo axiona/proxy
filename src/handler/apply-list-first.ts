@@ -1,5 +1,5 @@
 import {Required} from 'utility-types';
-import IsFunction from '@alirya/function/boolean/function.js';
+import IsFunction from '@axiona/function/boolean/function.js';
 import MultiHandlers from './multi-handlers.js';
 
 export default class ApplyListFirst<

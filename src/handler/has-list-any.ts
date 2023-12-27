@@ -1,4 +1,4 @@
-import Exists from '@alirya/object/property/boolean/exists.js';
+import Exists from '@axiona/object/property/boolean/exists.js';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers.js';
 

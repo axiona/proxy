@@ -1,5 +1,5 @@
 {
-  "name": "@alirya/proxy",
+  "name": "@axiona/proxy",
   "version": "0.2.2",
   "description": "Typescript object",
   "publishConfig": {
@@ -12,16 +12,16 @@
     "cache": false
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/alirya/proxy",
+  "homepage": "https://github.com/axiona/proxy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alirya/proxy"
+    "url": "https://github.com/axiona/proxy"
   },
   "dependencies": {
     "tslib": "^2.5.0",
-    "@alirya/object": "^0.38.1",
-    "@alirya/array": "^0.27.1",
-    "@alirya/function": "^0.17.1",
+    "@axiona/object": "^0.38.1",
+    "@axiona/array": "^0.27.1",
+    "@axiona/function": "^0.17.1",
     "is-empty-object": "^1.1.1",
     "ts-toolbelt": "^9.6.0",
     "utility-types": "^3.10.0"
@@ -44,7 +44,7 @@
     "ts-toolbelt": "^9.6.0",
     "utility-types": "^3.10.0",
     "package-version-git-tag": "^3.0.0",
-    "@alirya/type": "^0.8.1",
+    "@axiona/type": "^0.8.1",
     "cpx2": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "eslint-plugin-require-extensions": "^0.1.2",

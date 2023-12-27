@@ -1,5 +1,5 @@
 import SetHandler from '../../dist/handler/set-list-all.js';
-import {ShuffleParameters} from '@alirya/array/shuffle.js';
+import {ShuffleParameters} from '@axiona/array/shuffle.js';
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});
 

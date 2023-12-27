@@ -2,9 +2,9 @@ import GetHandler from '../../../dist/handler/get-list-first.js';
 import GetOwnPropertyDescriptorListAll from '../../../dist/handler/get-own-property-descriptor-list-all.js';
 import MergeAnonymous from '../../../dist/handler/merge-anonymous.js';
 import GetPrototypeOfListMerge from '../../../dist/handler/prototype-of-list-merge.js';
-import {ReadableParameters} from '@alirya/object/property/boolean/readable.js';
-import {ExistsParameters} from '@alirya/object/property/boolean/exists.js';
-import {PickParameters} from '@alirya/object/pick.js';
+import {ReadableParameters} from '@axiona/object/property/boolean/readable.js';
+import {ExistsParameters} from '@axiona/object/property/boolean/exists.js';
+import {PickParameters} from '@axiona/object/pick.js';
 
 
 it('enable console log', () => { spyOn(console, 'log').and.callThrough();});

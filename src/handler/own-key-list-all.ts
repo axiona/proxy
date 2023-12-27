@@ -1,4 +1,4 @@
-import {UniqueParameters} from '@alirya/array/unique.js';
+import {UniqueParameters} from '@axiona/array/unique.js';
 import {Required} from 'utility-types';
 import MultiHandlers from './multi-handlers.js';
 
